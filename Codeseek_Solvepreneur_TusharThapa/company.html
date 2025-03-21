@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Companies - EntreConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif;}
+    body {background: #f5f7fa; color: #333;}
+
+    nav {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 16px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #14ebd4;
+    }
+    nav a {
+      text-decoration: none;
+      color: #003c3f;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #14ebd4;
+      color: white;
+    }
+
+    .poster {
+      background: linear-gradient(to right, #14ebd4, #e0f7f5);
+      padding: 60px 30px;
+      text-align: center;
+      border-radius: 0 0 24px 24px;
+    }
+    .poster h1 {
+      font-size: 36px;
+      color: #003c3f;
+      margin-bottom: 20px;
+    }
+    .poster p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #003c3f;
+    }
+
+    .slider-section {
+      padding: 40px 0;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .slider-track {
+      display: flex;
+      animation: scroll 25s linear infinite;
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .slider-track img {
+      height: 80px;
+      object-fit: contain;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .company-section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .company-title {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #003c3f;
+    }
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .company-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .company-card:hover {
+      transform: translateY(-5px);
+    }
+    .company-card img {
+      max-width: 60px;
+      height: 60px;
+      margin-bottom: 12px;
+    }
+    .company-card h4 {
+      font-size: 18px;
+      color: #003c3f;
+      margin-bottom: 6px;
+    }
+    .company-card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .company-card a {
+      display: inline-block;
+      background: #14ebd4;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .company-card a:hover {
+      background: #10c9bc;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="home.html">Home</a>
+      <a href="startup.html">Join Startup</a>
+      <a href="mentor2.html">Mentors</a>
+      <a href="connect.html">Network</a>
+      <a href="company.html">Companies</a>
+      <a href="login.html">Login</a>
+  </nav>
+
+  <section class="poster">
+    <h1>Fuel Your Startup Dream</h1>
+    <p>EntreConnect bridges the gap between innovative entrepreneurs and visionary companies. Share your startup ideas directly with industry giants and unlock opportunities for funding, mentorship, and job placements — all based on your skills and passion.</p>
+  </section>
+
+  <section class="slider-section">
+    <div class="slider-track">
+      <img src="https://logo.clearbit.com/google.com" alt="Google">
+      <img src="https://logo.clearbit.com/zoho.com" alt="Zoho">
+      <img src="https://logo.clearbit.com/infosys.com" alt="Infosys">
+      <img src="https://logo.clearbit.com/reliance.com" alt="Reliance">
+      <img src="https://logo.clearbit.com/accenture.com" alt="Accenture">
+      <img src="https://logo.clearbit.com/byjus.com" alt="Byjus">
+      <img src="https://logo.clearbit.com/tcs.com" alt="TCS">
+    </div>
+  </section>
+
+  <section class="company-section">
+    <h2 class="company-title">Companies Ready to Fund Great Ideas</h2>
+    <div class="company-grid">
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/google.com" alt="Google">
+        <h4>Google</h4>
+        <p>Innovating for a better tomorrow. Seeking AI, SaaS, and clean-tech ideas.</p>
+        <a href="mailto:startups@google.com?subject=Startup%20Idea%20Submission">Send Your Idea</a>
+      </div>
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/zoho.com" alt="Zoho">
+        <h4>Zoho Corporation</h4>
+        <p>Empowering startups with tools and capital. We love B2B ideas!</p>
+        <a href="mailto:startupdesk@zoho.com?subject=Startup%20Pitch">Send Your Idea</a>
+      </div>
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/infosys.com" alt="Infosys">
+        <h4>Infosys</h4>
+        <p>Shaping the digital future. Pitch us your software and IT services startup.</p>
+        <a href="mailto:innovation@infosys.com?subject=EntreConnect%20Pitch">Send Your Idea</a>
+      </div>
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/reliance.com" alt="Reliance">
+        <h4>Reliance Ventures</h4>
+        <p>Looking for impactful consumer, retail, and green energy startups.</p>
+        <a href="mailto:ventures@ril.com?subject=Startup%20Collaboration">Send Your Idea</a>
+      </div>
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/tcs.com" alt="TCS">
+        <h4>Tata Consultancy Services</h4>
+        <p>Fostering digital innovation. Let's shape future-ready tech solutions.</p>
+        <a href="mailto:startup@tcs.com?subject=Innovation%20Idea">Send Your Idea</a>
+      </div>
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/accenture.com" alt="Accenture">
+        <h4>Accenture</h4>
+        <p>Join forces with global leaders in digital transformation and strategy.</p>
+        <a href="mailto:ventures@accenture.com?subject=Partner%20Pitch">Send Your Idea</a>
+      </div>
+      <div class="company-card">
+        <img src="https://logo.clearbit.com/byjus.com" alt="Byjus">
+        <h4>BYJU'S</h4>
+        <p>We're backing ed-tech and learning innovations that scale across India.</p>
+        <a href="mailto:partnerships@byjus.com?subject=Edtech%20Startup%20Idea">Send Your Idea</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

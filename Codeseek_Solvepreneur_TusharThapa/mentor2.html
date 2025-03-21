@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mentors - EntreConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif;}
+    body {background: #f5f7fa; color: #333;}
+    nav {
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 16px 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #14ebd4;
+    }
+    nav a {
+      text-decoration: none;
+      color: #003c3f;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #14ebd4;
+      color: white;
+    }
+    .poster {
+      background: linear-gradient(to right, #14ebd4, #e0f7f5);
+      padding: 60px 30px;
+      text-align: center;
+      border-radius: 0 0 24px 24px;
+    }
+    .poster h1 {
+      font-size: 36px;
+      color: #003c3f;
+      margin-bottom: 20px;
+    }
+    .poster p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #003c3f;
+    }
+    .filter-section {
+      text-align: center;
+      margin: 30px auto;
+    }
+    .filter-section select {
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .mentor-slide-container {
+      margin: 60px auto;
+      max-width: 900px;
+      overflow: hidden;
+    }
+    .mentor-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      transition: transform 0.5s ease;
+    }
+    .mentor-slide img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #14ebd4;
+    }
+    .mentor-slide h2 {
+      font-size: 22px;
+      color: #003c3f;
+      margin: 10px 0 5px;
+    }
+    .mentor-slide h4 {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+    .mentor-slide p {
+      font-size: 15px;
+      color: #444;
+    }
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .mentor-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      padding: 30px 20px;
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .mentor-card:hover { transform: translateY(-5px); }
+    .mentor-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      border: 3px solid #14ebd4;
+    }
+    .mentor-card h3 { font-size: 20px; color: #003c3f; margin-bottom: 5px; }
+    .mentor-card span { font-size: 15px; color: #777; }
+    .mentor-card .stars { color: #f4c542; margin: 10px 0; font-size: 18px; }
+    .mentor-card button {
+      background: #14ebd4;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+    .mentor-card button:hover { background: #10c9bc; }
+    .booking-form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .form-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .form-content input, .form-content select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-content button {
+      background-color: #14ebd4;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="startup.html">Join Startup</a>
+        <a href="mentor2.html">Mentors</a>
+        <a href="connect.html">Network</a>
+        <a href="company.html">Companies</a>
+        <a href="login.html">Login</a>
+      </nav>
+  
+
+  <div style="text-align: center; margin: 20px 0;">
+    <button onclick="document.getElementById('bookingForm').style.display='flex'" style="background-color:#14ebd4;color:white;padding:12px 24px;border:none;border-radius:8px;font-size:16px;cursor:pointer;">Book Free Demo Mentoring Session</button>
+  </div>
+
+  <section class="poster">
+    <h1>Expert Mentors to Power Your Startup</h1>
+    <p>Our highly experienced mentors are here to help you plan, launch, and scale your startup. Get expert insights, execution support, and personal guidance from the best minds in the industry.</p>
+  </section>
+
+  <div class="filter-section">
+    <label for="category">Filter by Expertise:</label>
+    <select id="category" onchange="filterMentors()">
+      <option value="all">All</option>
+      <option value="Product Management">Product Management</option>
+      <option value="Funding Expert">Funding Expert</option>
+      <option value="UI/UX Advisor">UI/UX Advisor</option>
+      <option value="Operations Mentor">Operations Mentor</option>
+      <option value="Pitch Deck Specialist">Pitch Deck Specialist</option>
+      <option value="Financial Planning">Financial Planning</option>
+    </select>
+  </div>
+
+  <div class="mentor-slide-container">
+    <div class="mentor-slide" id="mentorSlide"></div>
+  </div>
+
+  <section class="mentor-grid" id="mentorGrid"></section>
+
+  <div class="booking-form" id="bookingForm">
+    <div class="form-content">
+      <h3>Book a Mentor Session</h3>
+      <input type="text" id="userName" placeholder="Your Name">
+      <input type="email" id="userEmail" placeholder="Your Email">
+      <input type="datetime-local" id="userDate">
+      <button onclick="submitBooking()">Submit</button>
+      <button onclick="closeForm()" style="background:#ccc;color:#000;">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const mentors = [
+      { name: "Arjun Kapoor", specialty: "Startup Growth & Scale", img: "https://randomuser.me/api/portraits/men/11.jpg", desc: "10+ years mentoring founders across tech and consumer startups. Helped scale 15+ companies globally." },
+      { name: "Priya Verma", specialty: "Product Management", img: "https://randomuser.me/api/portraits/women/22.jpg", desc: "Ex-PM at unicorn startups. Expert in roadmaps, MVPs, user insights and agile frameworks." },
+      { name: "Rahul Dev", specialty: "Funding Expert", img: "https://randomuser.me/api/portraits/men/33.jpg", desc: "Raised over $50M for Indian startups. Connects founders with angel investors and VCs." },
+      { name: "Anjali Rao", specialty: "UI/UX Advisor", img: "https://randomuser.me/api/portraits/women/44.jpg", desc: "UX specialist with 8+ years in SaaS and mobile platforms." },
+      { name: "Aman Sinha", specialty: "Operations Mentor", img: "https://randomuser.me/api/portraits/men/55.jpg", desc: "Former COO. Scaled operations for high-growth D2C brands." },
+      { name: "Deepika Joshi", specialty: "Pitch Deck Specialist", img: "https://randomuser.me/api/portraits/women/66.jpg", desc: "Designed 100+ investor pitch decks for early and growth stage startups." },
+      { name: "Vikram Rao", specialty: "Financial Planning", img: "https://randomuser.me/api/portraits/men/77.jpg", desc: "CA with 12 years experience in startup accounting & forecasting." }
+    ];
+
+    let currentSlide = 0;
+    const mentorSlide = document.getElementById('mentorSlide');
+    const mentorGrid = document.getElementById('mentorGrid');
+
+    function showSlide() {
+      const m = mentors[currentSlide];
+      mentorSlide.innerHTML = `
+        <div>
+          <img src="${m.img}" alt="${m.name}" />
+          <h2>${m.name}</h2>
+          <h4>${m.specialty}</h4>
+          <p>${m.desc}</p>
+        </div>
+      `;
+    }
+
+    function populateGrid() {
+      mentorGrid.innerHTML = '';
+      mentors.forEach(m => {
+        mentorGrid.innerHTML += `
+          <div class="mentor-card" data-specialty="${m.specialty}">
+            <img src="${m.img}" alt="${m.name}" />
+            <h3>${m.name}</h3>
+            <span>${m.specialty}</span>
+            <div class="stars">★★★★★</div>
+            <button onclick="openForm('${m.name}')">Hire Me</button>
+          </div>
+        `;
+      });
+    }
+
+    function filterMentors() {
+      const selected = document.getElementById('category').value;
+      document.querySelectorAll('.mentor-card').forEach(card => {
+        card.style.display = selected === 'all' || card.dataset.specialty === selected ? 'block' : 'none';
+      });
+    }
+
+    function openForm(name) {
+      document.getElementById('bookingForm').style.display = 'flex';
+    }
+    function closeForm() {
+      document.getElementById('bookingForm').style.display = 'none';
+    }
+    function submitBooking() {
+      const name = document.getElementById('userName').value;
+      const email = document.getElementById('userEmail').value;
+      const date = document.getElementById('userDate').value;
+      if (name && email && date) {
+        alert(`Thanks ${name}, your session is booked on ${date}. We will contact you at ${email}.`);
+        closeForm();
+      } else {
+        alert('Please fill all fields.');
+      }
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % mentors.length;
+      showSlide();
+    }, 4000);
+
+    showSlide();
+    populateGrid();
+  </script>
+</body>
+</html>

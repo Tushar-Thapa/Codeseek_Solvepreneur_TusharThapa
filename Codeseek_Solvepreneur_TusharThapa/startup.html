@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Startup - EntreConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* Navbar - matches homepage */
+    nav {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 16px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #14ebd4;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #003c3f;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: #14ebd4;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    nav a:hover {
+      background-color: #14ebd4;
+      color: #ffffff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input,
+    .search-bar select,
+    .search-bar button {
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .search-bar button {
+      background-color: #14ebd4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-bar button:hover {
+      background-color: #10c9bc;
+    }
+
+    .job-listing {
+      background: #ffffff;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    .job-listing:hover {
+      transform: translateY(-5px);
+    }
+
+    .job-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #003c3f;
+    }
+
+    .job-meta {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .read-more {
+      background-color: #003c3f;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .read-more:hover {
+      background-color: #14ebd4;
+    }
+
+    @media (max-width: 768px) {
+      .job-listing {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NavBar -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="startup.html">Join Startup</a>
+    <a href="mentor2.html">Mentors</a>
+    <a href="connect.html">Network</a>
+    <a href="company.html">Companies</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+<!-- Intro Banner Section -->
+<section style="background: linear-gradient(to right, #14ebd4, #e0f7f5); padding: 60px 30px; text-align: center; border-radius: 0 0 20px 20px;">
+    <h1 style="font-size: 36px; color: #003c3f; margin-bottom: 20px;">Join a Startup Team Through EntreConnect</h1>
+    <p style="font-size: 18px; max-width: 800px; margin: 0 auto; color: #003c3f;">
+      Whether you're a student, fresher, or experienced professional, EntreConnect lets you explore open roles in emerging startups.
+      Connect directly with HR from various domains — <strong>Media, Mechanical, IT, Finance, Marketing</strong> and many more.
+      Browse roles, apply instantly, and become part of India’s fastest growing startup ecosystem.
+    </p>
+  </section>
+
+    <!-- Job Listings -->
+    <div class="search-bar">
+
+        <input type="text" id="searchInput" placeholder="Search job title, company, industry...">
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="IT">IT</option>
+          <option value="Media">Media</option>
+          <option value="Mechanical">Mechanical</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+        <button onclick="filterJobs()">Search</button>
+      </div>
+      
+      <div id="jobList">
+        <!-- Jobs will be inserted here dynamically -->
+      </div>
+      
+  </div>
+</body>
+<script>
+    const jobs = [
+      { title: "Frontend Developer", company: "TechNova", location: "Remote", date: "March 2025", category: "IT" },
+      { title: "Video Editor", company: "MediaCraft", location: "Mumbai", date: "April 2025", category: "Media" },
+      { title: "CAD Design Engineer", company: "MechMinds", location: "Pune", date: "March 2025", category: "Mechanical" },
+      { title: "Social Media Manager", company: "BuzzReach", location: "Delhi", date: "April 2025", category: "Marketing" },
+      { title: "Backend Developer", company: "StartupVerse", location: "Bangalore", date: "February 2025", category: "IT" },
+      { title: "Content Writer", company: "MediaCraft", location: "Remote", date: "March 2025", category: "Media" },
+      { title: "Thermal Systems Engineer", company: "AutoSpark", location: "Chennai", date: "April 2025", category: "Mechanical" },
+      { title: "SEO Executive", company: "Adfinity", location: "Remote", date: "January 2025", category: "Marketing" }
+    ];
+  
+    const jobList = document.getElementById('jobList');
+  
+    function displayJobs(filtered = jobs) {
+      jobList.innerHTML = '';
+      filtered.forEach(job => {
+        const jobCard = document.createElement('div');
+        jobCard.className = 'job-listing';
+        jobCard.innerHTML = `
+          <div>
+            <div class="job-title">${job.title}</div>
+            <div class="job-meta">Full-time | ${job.company}<br>📍 ${job.location} | 🗓 ${job.date} <br>🔖 ${job.category}</div>
+          </div>
+          <a href="#" class="read-more">Contact HR →</a>
+        `;
+        jobList.appendChild(jobCard);
+      });
+    }
+  
+    function filterJobs() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('categoryFilter').value;
+  
+      const filtered = jobs.filter(job =>
+        (category === 'all' || job.category === category) &&
+        (job.title.toLowerCase().includes(searchInput) || job.company.toLowerCase().includes(searchInput))
+      );
+  
+      displayJobs(filtered);
+    }
+  
+    // Load all jobs initially
+    displayJobs();
+  </script>
+  
+</html>
